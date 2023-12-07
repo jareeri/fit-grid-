@@ -59,6 +59,7 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+
 const Category = () => {
   const [data, setData] = useState([]);
   const [visibleItems, setVisibleItems] = useState(4);
@@ -81,7 +82,7 @@ const Category = () => {
       <h1 className="text-[#22092C] text-4xl mb-6 font-bold text-center">Explore Categories</h1>
       <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 w-full">
         {data.slice(0, visibleItems).map((item, index) => (
-          <Link to={`/category/${item.id}`} key={index}>
+          <Link to={`/category/${item.category}`} key={index} >
             <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl h-[20rem]">
               <img
                 className="object-cover w-full h-full rounded-t-md"

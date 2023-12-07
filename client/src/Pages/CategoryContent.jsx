@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link , useParams} from 'react-router-dom';
 
 const CategoryContent = () => {
+  // console.log(useParams);
+  const { title } = useParams();
+  // console.log(title);
   const [trainers, setTrainers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -12,7 +15,7 @@ const CategoryContent = () => {
   useEffect(() => {
     const fetchTrainers = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/Card');
+        const response = await axios.get(`http://localhost:8080/plans/category/${title}`);
         setTrainers(response.data);
       } catch (error) {
         console.error('Error fetching trainers: ', error);
